@@ -18,9 +18,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.connection.DatabaseConnection;
 
-/**
- * Servlet implementation class AddProducts
- */
+
 @WebServlet("/AddProducts")
 public class AddProducts extends HttpServlet {
 	private final String UPLOAD_DIRECTORY = "C:\\Users\\CHAMA COMPUTERS\\eclipse-workspace\\OnlineShopping1\\WebContent\\uploads";

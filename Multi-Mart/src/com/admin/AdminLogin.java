@@ -16,9 +16,7 @@ import javax.servlet.http.HttpSession;
 
 import com.connection.DatabaseConnection;
 
-/**
- * Servlet implementation class AdminLogin
- */
+
 @WebServlet("/AdminLogin")
 public class AdminLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
