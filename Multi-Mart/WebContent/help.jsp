@@ -5,8 +5,7 @@
 <!DOCTYPE html>
 <html>
 
-<!-- Mirrored from p.w3layouts.com/demos/apr-2016/05-04-2016/smart_shop/web/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 23 Jul 2020 05:57:57 GMT -->
-<!-- Added by HTTrack -->
+
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <!-- /Added by HTTrack -->
 <head>
