@@ -4,6 +4,7 @@
 <%@ page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
+<!-- /Added by Group Nido -->
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <!-- /Added by HTTrack -->
