@@ -1,0 +1,16 @@
+.item {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn-pay {
+    background-color: #C800Da;
+    border: 0;
+    color: #fff;
+    font-weight: 600;
+}
+
+.fa-ticket {
+    color: #0e1fa1;
+}
