@@ -1,4 +1,3 @@
-<%@page import="com.orders.GetProductOrders"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="com.connection.*"%>
@@ -6,11 +5,12 @@
 <!DOCTYPE html>
 <html>
 
-
+<!-- Mirrored from p.w3layouts.com/demos/apr-2016/05-04-2016/smart_shop/web/electronics.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 23 Jul 2020 05:57:48 GMT -->
+<!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <!-- /Added by HTTrack -->
 <head>
-<title>Muti-Mart</title>
+<title>Multi-Mart</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -63,7 +63,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
 	integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
 	crossorigin="anonymous">
-
 <script src="js/jquery.easing.min.js"></script>
 </head>
 <body>
@@ -145,7 +144,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-6 header-middle">
 				<form action="searchProduct.jsp" method="post">
 					<div class="search">
-						<input type="search" name="search" placeholder="Search Product">
+						<input type="search"  name="search" placeholder="Search Product" style="width: 680px;">
 					</div>
 					<div class="sear-sub">
 						<input type="submit" value=" ">
@@ -155,8 +154,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="col-md-3 header-right footer-bottom">
 				<ul>
-					<li><a href="customer-login.jsp" style="width: 150px;"><i
-							class="fas fa-user"></i>&nbsp;Customer Login</a></li>
+					<li><a href="admin-login.jsp" style="width: 150px;"><i
+							class="fas fa-user"></i>&nbsp;Admin Login</a></li>
+
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -180,11 +180,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									class="icon-bar"></span>
 							</button>
 						</div>
+						<!-- Collect the nav links, forms, and other content for toggling -->
 						<jsp:include page="header.jsp"></jsp:include>
 					</div>
 				</nav>
 			</div>
-		
+
 			<div class="clearfix"></div>
 		</div>
 	</div>
@@ -192,67 +193,60 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- banner -->
 	<div class="page-head">
 		<div class="container">
-			<h3>Products</h3>
+			<h3>Electronics</h3>
 		</div>
 	</div>
 	<!-- //banner -->
 	<!---728x90--->
 
-	<!-- check out -->
-	<div class="checkout">
+	<!-- Electronics -->
+	<div class="electronics">
 		<div class="container">
+			<div class="clearfix"></div>
 			<div class="ele-bottom-grid">
-				<h3>Products</h3>
+				<h3>
+					<span>Latest </span>Collections
+				</h3>
 				<%
 					ResultSet retriveProduct = DatabaseConnection
-						.getResultFromSqlQuery("select * from tblproduct where name LIKE '%"+request.getParameter("search")+"%'");
-				while (retriveProduct.next()) {
+						.getResultFromSqlQuery("select * from tblproduct where product_category='Electronics'");
+					while (retriveProduct.next()) {
 				%>
-				<div class="col-md-3 product-men">
-					<div class="men-pro-item simpleCart_shelfItem">
-						<div class="men-thumb-item">
-							<input type="hidden" name="productId"
-								value="<%=retriveProduct.getInt("id")%>"> <img
-								src="uploads/<%=retriveProduct.getString("image_name")%>" alt=""
-								class="pro-image-front"> <img
-								src="uploads/<%=retriveProduct.getString("image_name")%>" alt=""
-								class="pro-image-back"> <span class="product-new-top">New</span>
-						</div>
-						<div class="item-info-product ">
-							<h4>
-								<a href="single.html"><%=retriveProduct.getString("name")%></a>
-							</h4>
-							<div class="info-product-price">
-								<input type="hidden" name="price"
-									value="<%=retriveProduct.getString("price")%>"> <input
-									type="hidden" name="mrp_price"
-									value="<%=retriveProduct.getString("mrp_price")%>"> <span
-									class="item_price"><%=retriveProduct.getString("price")%></span>
-								<del><%=retriveProduct.getString("mrp_price")%></del>
+				<form action="AddToCart" method="post">
+					<div class="col-md-3 product-men">
+						<div class="men-pro-item simpleCart_shelfItem">
+							<div class="men-thumb-item">
+								<input type="hidden" name="productId"
+									value="<%=retriveProduct.getInt("id")%>"> <img
+									src="uploads/<%=retriveProduct.getString("image_name")%>"
+									alt="" class="pro-image-front"> <img
+									src="uploads/<%=retriveProduct.getString("image_name")%>"
+									alt="" class="pro-image-back"> <span
+									class="product-new-top">New</span>
 							</div>
-							<input type="submit" value="Add to cart" class="btn btn-warning">
+							<div class="item-info-product ">
+								<h4>
+									<a href="single.html"><%=retriveProduct.getString("name")%></a>
+								</h4>
+								<div class="info-product-price">
+									<input type="hidden" name="price"
+										value="<%=retriveProduct.getString("price")%>"> <input
+										type="hidden" name="mrp_price"
+										value="<%=retriveProduct.getString("mrp_price")%>"> <span
+										class="item_price"><%=retriveProduct.getString("price")%> Rs.</span>
+									<del><%=retriveProduct.getString("mrp_price")%> Rs.</del>
+								</div>
+								<input type="submit" value="Add to cart" class="btn btn-warning" onclick="return confirm('Are you sure Do you want to add this item in cart?');">
+							</div>
 						</div>
 					</div>
-				</div>
+				</form>
 				<%
 					}
 				%>
 			</div>
-			<!---728x90--->
-
-			<div class="checkout-left">
-
-				<div class="checkout-right-basket animated wow slideInRight"
-					data-wow-delay=".5s">
-					<a href="customer-login.jsp"><span
-						class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Back
-						To Shopping</a>
-				</div>
-			</div>
 		</div>
 	</div>
-	<!-- //check out -->
-	<!---728x90--->
 	<div class="header">
 		<div class="container">
 			<ul>
@@ -261,12 +255,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li><span class="glyphicon glyphicon-shopping-cart"
 					aria-hidden="true"></span>Free shipping On all orders</li>
 				<li><span class="glyphicon glyphicon-envelope"
-					aria-hidden="true"></span><a href="mailto:info@example.com">info@example.com</a></li>
+					aria-hidden="true"></span><a href="mailto:info@example.com">info@multi-mart.com</a></li>
 			</ul>
 		</div>
 	</div>
-	<!-- //product-nav -->
 	<jsp:include page="footer.jsp"></jsp:include>
-
+	
 </body>
+
+<!-- Mirrored from p.w3layouts.com/demos/apr-2016/05-04-2016/smart_shop/web/electronics.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 23 Jul 2020 05:57:56 GMT -->
 </html>
